@@ -1,21 +1,45 @@
 package com.example.core.serviceImpl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.core.domain.Emp;
-import com.example.core.repository.EmpDao;
+import com.example.core.domain.Employee;
+import com.example.core.repository.EmployeeRepository;
 import com.example.core.service.EmpService;
 
 @Service
 public class EmpServiceImpl implements EmpService {
 
 	@Autowired
-	EmpDao empDao;
+	EmployeeRepository employeeRepositor;
+
 	@Override
-	public int saveEmp(Emp emp) {
-		return empDao.saveEmp(emp);
+	public List<Employee> findAll() {
+		return employeeRepositor.findAll();
 	}
 
+	@Override
+	public Employee insertEmployee(Employee emp) {
+		return employeeRepositor.save(emp);
+	}
+
+	@Override
+	public Employee updateEmployee(Employee emp) {
+		return employeeRepositor.save(emp);
+	}
+
+	@Override
+	public void deleteEmployee(Employee emp) {
+		employeeRepositor.delete(emp);
+	}
+
+	@Override
+	public Optional<Employee> findById(Employee emp) {
+			return employeeRepositor.findById(emp.getId());
+	}
+	
 	
 }
