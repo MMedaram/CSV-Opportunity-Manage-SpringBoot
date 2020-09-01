@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +28,24 @@ public class Employee {
 	
 	@Column(name = "salary")
 	private Double salary;
+
+	 @OneToOne
+	 @JoinColumn(unique = true)
+	 private Department department;
+
+	 
+	  
+	 public Employee() {
+		 
+	 }
+	 public Employee(String name, String address, String designation, Double salary, Department department) {
+		//this.id = id;
+		this.name = name;
+		this.address = address;
+		this.designation = designation;
+		this.salary = salary;
+		this.department = department;
+	}
 
 	/**
 	 * @return the id
@@ -97,11 +117,21 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public String toString() {
-		return "Emp [id=" + id + ", name=" + name + ", address=" + address + ", designation=" + designation
-				+ ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", designation=" + designation
+				+ ", salary=" + salary + ", department=" + department + "]";
 	}
+
+	
 
 	
 	

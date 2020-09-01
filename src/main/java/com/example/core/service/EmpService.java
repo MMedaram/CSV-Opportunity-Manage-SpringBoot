@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.core.domain.Employee;
 @Component
@@ -19,6 +20,8 @@ public interface EmpService {
 	public Employee updateEmployee(Employee emp);
 
 	public void deleteEmployee(Employee emp);
+
+	public void uploadCSVFile(MultipartFile file);
 
 
 }
