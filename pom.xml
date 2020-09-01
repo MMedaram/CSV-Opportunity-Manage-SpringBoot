@@ -32,6 +32,11 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.8</version>
 		</dependency>	
 	</dependencies>
 
@@ -43,5 +48,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
+	
 </project>
