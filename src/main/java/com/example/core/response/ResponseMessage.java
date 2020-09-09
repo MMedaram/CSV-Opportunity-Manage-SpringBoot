@@ -1,4 +1,4 @@
-package com.example.response;
+package com.example.core.response;
 
 public class ResponseMessage {
 	private String message;

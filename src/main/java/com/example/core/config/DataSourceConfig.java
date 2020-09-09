@@ -12,8 +12,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactory",basePackages = {"com.example.core.repository"})
 @EnableTransactionManagement
 public class DataSourceConfig {
-    
-    @Bean
+
+//	@Value("${server.port}")
+//	private String defaultName;
+//	
+   /* @Bean
     public DataSource getDataSource() {
     	String driverClass="org.postgresql.Driver";
     	String url="jdbc:postgresql://localhost:5432/emp";
@@ -27,19 +30,15 @@ public class DataSourceConfig {
         dataSourceBuilder.password(password);
         return dataSourceBuilder.build();
     }
-
-  /*
-   *   @Bean
-   
-    public DataSource getDataSource() {
-        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/emp");
+*/
+      @Bean
+       public DataSource getDataSource() {
+    	DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
+    	dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
+        dataSourceBuilder.url("jdbc:mysql://localhost:3306/emp?createDatabaseIfNotExist=true");
         dataSourceBuilder.username("root");
         dataSourceBuilder.password("root");
         return dataSourceBuilder.build();
     }
-   */
-    
 
 }
