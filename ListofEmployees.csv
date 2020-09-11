@@ -1,9 +1,9 @@
 id,name,address,designation,salary,departmentid
 1,Mohan,Andra Pradesh,Java Developer,25000,1
-2,Anurag,Madya Pradesh,UI Developer,30000,1
-3,Chetan,Bangalore,UI Developer,20000,1
+2,Anurag,Madya Pradesh,UI Developer,30000,2
+3,Chetan,Bangalore,UI Developer,20000,2
 4,Sindhu,Bangalore,UI Developer,20000,1
 5,Babu,Hyderabad,QA Lead,35000,1
-6,Harish,Bangalore,QA,28000,1
-7,Prajeeth,Chenni,Scrum Master,35000,2
+6,Harish,Bangalore,QA,28000,2
+7,Prajeeth,Chenni,Scrum Master,35000,1
 8,Ravi,USA,Lead,55000,2
