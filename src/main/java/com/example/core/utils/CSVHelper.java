@@ -12,12 +12,11 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.core.domain.Department;
-import com.example.core.domain.Employee;
+import com.example.core.domain.Opportunity;
 
 public class CSVHelper {
 	  public static String TYPE = "text/csv";
-	  static String[] HEADERs = { "Id", "Title", "Description", "Published" };
+	  static String[] HEADERs = { "ID", "OPPORTUITY_NAME", "ACCOUNT_NAME", "EXP_BOOK_DATE","EXP_PRODUCT","EXP_SERVICE","EXIST_OPP_NAME","OPP_URL"};
 
 	  public static boolean hasCSVFormat(MultipartFile file) {
 
@@ -28,28 +27,30 @@ public class CSVHelper {
 	    return true;
 	  }
 
-	  public static List<Employee> csvToEmployees(InputStream is) {
+	  public static List<Opportunity> csvToOpportunities(InputStream is) {
 	    try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 	        CSVParser csvParser = new CSVParser(fileReader,
 	            CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
 
-	      List<Employee> employees = new ArrayList<Employee>();
+	      List<Opportunity> opportunities = new ArrayList<Opportunity>();
 
 	      Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
 	      for (CSVRecord csvRecord : csvRecords) {
-	    	  Employee employee = new Employee(
-	    		  csvRecord.get("name"),
-	              csvRecord.get("address"),
-	              csvRecord.get("designation"),
-	              Double.parseDouble(csvRecord.get("salary")),
-	              new Department(Long.parseLong(csvRecord.get("departmentid")))
+	    	  Opportunity opportunity = new Opportunity(
+	    		  csvRecord.get("OPPORTUITY_NAME"),
+	              csvRecord.get("ACCOUNT_NAME"),
+	              csvRecord.get("EXP_BOOK_DATE"),
+	             csvRecord.get("EXP_PRODUCT"),
+	    		  csvRecord.get("EXP_SERVICE"),
+	              csvRecord.get("EXIST_OPP_NAME"),
+	              csvRecord.get("OPP_URL")
 	            );
 
-	    	  employees.add(employee);
+	    	  opportunities.add(opportunity);
 	      }
 
-	      return employees;
+	      return opportunities;
 	    } catch (IOException e) {
 	      throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
 	    }

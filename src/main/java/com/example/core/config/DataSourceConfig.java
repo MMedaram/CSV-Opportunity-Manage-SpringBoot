@@ -15,11 +15,11 @@ public class DataSourceConfig {
 
 //	@Value("${server.port}")
 //	private String defaultName;
-//	
-   /* @Bean
+	
+/*    @Bean
     public DataSource getDataSource() {
     	String driverClass="org.postgresql.Driver";
-    	String url="jdbc:postgresql://localhost:5432/emp";
+    	String url="jdbc:postgresql://localhost:5432/MOMEDARA";
     	String userName="postgres";
     	String password="postgres";
     	
@@ -30,8 +30,9 @@ public class DataSourceConfig {
         dataSourceBuilder.password(password);
         return dataSourceBuilder.build();
     }
+
 */
-      @Bean
+	   @Bean
        public DataSource getDataSource() {
     	DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
     	dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
