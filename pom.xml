@@ -58,24 +58,25 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.2</version>
 		</dependency>
-			<!-- 	 configservice dependency  -->
+		<!-- configservice dependency -->
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>configexample</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+		<!-- excel service dependency -->
+		<!-- <dependency>
+			<groupId>com.excel.identifiers</groupId>
+			<artifactId>identifiers</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- <plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
- -->
 			<!-- added to generate a jar as dependency to other app -->
-			<!-- start  -->
+			<!-- start -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -101,7 +102,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!--  end -->
+			<!-- end -->
 		</plugins>
 	</build>
 

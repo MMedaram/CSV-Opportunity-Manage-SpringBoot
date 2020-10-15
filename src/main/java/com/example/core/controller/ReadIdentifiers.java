@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.core.utils.ReadExcelSheetData;
+import com.excel.identifiers.helper.ReadExcelSheetData;
+
 
 @RestController
 @RequestMapping("/api")
@@ -15,6 +16,10 @@ public class ReadIdentifiers {
 
 	@GetMapping("/identifier/{key}")
 	public String getValue(@PathVariable String key) throws IOException {
-		return ReadExcelSheetData.getMapData(key);
+		ReadExcelSheetData readExcelSheetData=new ReadExcelSheetData();
+		System.out.println("========================================"+readExcelSheetData.getMapData("url"));
+		System.out.println("========================================"+readExcelSheetData.getMapData("div"));
+
+		return "OK";
 	}
 }
