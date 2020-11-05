@@ -1,4 +1,4 @@
-package com.example.core.domain;
+package com.dbadapters.core.domain;
 
 import java.io.Serializable;
 

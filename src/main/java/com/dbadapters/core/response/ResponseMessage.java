@@ -1,4 +1,4 @@
-package com.example.core.response;
+package com.dbadapters.core.response;
 
 public class ResponseMessage {
 	private String message;

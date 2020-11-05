@@ -1,5 +1,6 @@
-package com.example.core.controller;
+package com.dbadapters.core.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.core.domain.Opportunity;
-import com.example.core.response.ResponseMessage;
-import com.example.core.service.OpportunityService;
-import com.example.core.utils.CSVHelper;
+import com.dbadapters.core.domain.Opportunity;
+import com.dbadapters.core.response.ResponseMessage;
+import com.dbadapters.core.service.OpportunityService;
+import com.dbadapters.core.utils.CSVHelper;
 
 @RestController
 @RequestMapping("/api")
@@ -54,12 +55,21 @@ public class OpportunityController {
 	}
 
 	/*
+	 * Reading a csv file from specific location (ex: srs/main/resource folder) and reading the data and storing it in to db
+	 */
+
+	@PostMapping(value = "/createByReadingExcel")
+	public ResponseEntity<ResponseMessage> createOpportunityByReadingExcel() throws IOException {
+		return opportunityService.createOpportunityByReadingExcel();
+	}
+
+	/*
 	 * Uploading a csv file and reading and storing it in to db
 	 */
 	@PostMapping("/uploadOpportunityCSVFile")
 	public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
-		String message = "";
 
+		String message = "";
 		if (CSVHelper.hasCSVFormat(file)) {
 			try {
 				opportunityService.uploadCSVFile(file);
@@ -75,5 +85,7 @@ public class OpportunityController {
 		message = "Please upload a csv file!";
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
 	}
+	
+	
 
 }

@@ -1,4 +1,4 @@
-package com.example.core.config;
+package com.dbadapters.core.config;
 
 import javax.sql.DataSource;
 
@@ -51,30 +51,4 @@ public class DataSourceConfig {
 		return dataSourceBuilder.build();
 	}
 	
-/*    @Bean
-    public DataSource getDataSource() {
-    	String driverClass="org.postgresql.Driver";
-    	String url="jdbc:postgresql://localhost:5432/MOMEDARA";
-    	String userName="postgres";
-    	String password="postgres";
-    	
-    	DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName(driverClass);
-        dataSourceBuilder.url(url);
-        dataSourceBuilder.username(userName);
-        dataSourceBuilder.password(password);
-        return dataSourceBuilder.build();
-    }
-
-
-	   @Bean
-       public DataSource getDataSource() {
-    	DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-    	dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/emp?createDatabaseIfNotExist=true");
-        dataSourceBuilder.username("root");
-        dataSourceBuilder.password("root");
-        return dataSourceBuilder.build();
-    }
-*/
 }
